@@ -1,60 +1,54 @@
 :root {
     --w: calc(70vw / 6);
-    --h: calc(70vh / 4);
+    --h: calc(70vh / 3);
 }
 
 * {
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
-.areat, .tarjeta, .cara{
-    width: var(--w);
-    height: var(--h);
+.areat, .tarjeta{
+    width: 150px;
+    height: 200px;
     min-width: 100px;
 }
 
-body{
+body {
     padding: 0;
-    margin-left: 200px;
+    margin: 100px;
     -webkit-perspective: 1000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-}
-
-.cara {
-    position: absolute;
-    backface-visibility: hidden;
 }
 
 .tarjeta {
     position: relative;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
 
 .areat:hover .tarjeta{
-    transform: rotateY(180)
+    transform: rotateY(180deg);
 }
 
 .carat{
-    background-color: cadetblue;
+    background-color: rgb(95, 158, 160);
     width: 150px;
     height: 200px;
-    padding: 20;
+    padding: 20px;
     border-radius: 15px;
-
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
 .caras{
-    background: linear-gradient(orange, darkorange);
+    background:rgb(10, 107, 109);
     width: 150px;
     height: 200px;
     padding: 20;
     border-radius: 15px;
-}
-
-div {
-    display: inline-block;
+    backface-visibility: hidden;
 }
