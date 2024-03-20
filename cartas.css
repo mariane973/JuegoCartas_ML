@@ -13,14 +13,17 @@
     min-width: 100px;
 }
 
-body {
+.containerc{
     padding: 0;
-    margin: 100px;
+    margin:0;
     -webkit-perspective: 1000;
     min-height: 100vh;
+    background: powderblue;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .tarjeta {
