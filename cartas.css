@@ -1,6 +1,60 @@
-.carta{
+:root {
+    --w: calc(70vw / 6);
+    --h: calc(70vh / 4);
+}
+
+* {
+    transition: all 0.5s;
+}
+
+.areat, .tarjeta, .cara{
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+}
+
+body{
+    padding: 0;
+    margin-left: 200px;
+    -webkit-perspective: 1000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.cara {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.tarjeta {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.areat:hover .tarjeta{
+    transform: rotateY(180)
+}
+
+.carat{
     background-color: cadetblue;
     width: 150px;
     height: 200px;
+    padding: 20;
     border-radius: 15px;
+
+}
+
+.caras{
+    background: linear-gradient(orange, darkorange);
+    width: 150px;
+    height: 200px;
+    padding: 20;
+    border-radius: 15px;
+}
+
+div {
+    display: inline-block;
 }
