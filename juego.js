@@ -1,7 +1,3 @@
-let juego = document.getElementById('juegoCarta')
-
-juego.addEventListener('click', generarTablero)
-
 function cargarIconos() {
     iconos = [
         '<i class="fas fa-dog" style="--fa-primary-color: #000000; --fa-secondary-color: #000000;"></i>',
@@ -17,6 +13,7 @@ function cargarIconos() {
 function generarTablero() {
     cargarIconos()
     selecciones = []
+    
     let tablero = document.getElementById("containerc")
     let tarjetas = []
     for (let i = 0; i < 16; i++) {
