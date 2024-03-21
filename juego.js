@@ -1,7 +1,3 @@
-let juego = document.getElementById('juegoCarta')
-
-juego.addEventListener('click', generarTablero)
-
 function cargarIconos() {
     iconos = [
         '<i class="fas fa-dog" style="--fa-primary-color: #000000; --fa-secondary-color: #000000;"></i>',
