@@ -1,16 +1,12 @@
 let juego = document.getElementById('juegoCarta')
 
-let acierto = 30
-
 window.addEventListener("load", generarTablero,
     window.alert("Comienza el juego"),
 )
 
-function tiempo(puntaje1, puntaje2){
-    window.alert("Puntaje: \nJugador 1: "+puntaje1+"\nJugador 2: "+puntaje2)
+function tiempo(puntaje1){
+    window.alert("Puntaje Obtenido:" +puntaje1)
 }
-
-setTimeout(tiempo, 60000)
 
 function cargarIconos() {
     iconos = [
@@ -25,38 +21,33 @@ function cargarIconos() {
     ]
 }
 function generarTablero() {
-    cargarIconos()
-    selecciones = []
-    let campo = document.getElementById("containerc")
-    let tarjetas = []
+    cargarIconos();
+    selecciones = [];
+    let campo = document.getElementById("containerc");
+    let tarjetas = [];
     for (let i = 0; i < 16; i++) {
         tarjetas.push(`
-        <div class="areat" onclick="seleccionarTarjeta(${i})">
-        <div class="tarjeta id="carta(${i})"">
-          <div class="carat id="cartat(${i})">
-            ${iconos[0]}
-          </div>
-          <div class="caras">
-            <i class="fas fa-star"></i></i>
-          </div>
-         </div>
-         </div>
-         </div>
-      </div>       
-        `)
-        if (i % 2 == 1) {
-            iconos.splice(0, 1)
-        }
+            <div class="areat" onclick="seleccionarTarjeta(${i})">
+                <div class="tarjeta" id="tarjeta${i}">
+                <div class="carat" id="cartat${i}">
+                ${iconos[i % (iconos.length / 1)]}
+            </div>
+            <div class="caras">
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </div>
+`);
     }
     tarjetas.sort(()=>Math.random()-0.5)
     campo.innerHTML = tarjetas.join('')
 }
+let selecciones = []
 
 function seleccionarTarjeta(i) {
-    let tarjeta = document.getElementById("tarjeta" + i)
+    let tarjeta = document.querySelector("#tarjeta" + i)
     if (tarjeta.style.transform != "rotateY(180deg)"){
         tarjeta.style.transform = "rotateY(180deg)"
-        tarjeta.onclick = null// Desactivar el evento onclick
         selecciones.push(i)
     }
     if (selecciones.length == 2) {
@@ -66,21 +57,19 @@ function seleccionarTarjeta(i) {
 }
 
 function deseleccionar(selecciones) {
+    let acierto = 30
+    let puntaje = 0
     setTimeout(() => {
-        let trasera1 = document.getElementById("trasera" + selecciones[0])
-        let trasera2 = document.getElementById("trasera" + selecciones[1])
+        let trasera1 = document.getElementById('cartat' + selecciones[0])
+        let trasera2 = document.getElementById('cartat' + selecciones[1])
         if (trasera1.innerHTML != trasera2.innerHTML) {
-            let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-            let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+            let tarjeta1 = document.getElementById('tarjeta' + selecciones[0])
+            let tarjeta2 = document.getElementById('tarjeta' + selecciones[1])
             tarjeta1.style.transform = "rotateY(0deg)"
             tarjeta2.style.transform = "rotateY(0deg)"
         }else{
-            trasera1.style.background = "plum"
-            trasera2.style.background = "plum"
+            puntaje+=acierto
         }
     }, 1000)
-}
-
-function puntajes(){
-    
+    setTimeout(tiempo, 60000, puntaje)
 }
