@@ -1,3 +1,17 @@
+let juego = document.getElementById('juegoCarta')
+
+let acierto = 30
+
+window.addEventListener("load", generarTablero,
+    window.alert("Comienza el juego"),
+)
+
+function tiempo(puntaje1, puntaje2){
+    window.alert("Puntaje: \nJugador 1: "+puntaje1+"\nJugador 2: "+puntaje2)
+}
+
+setTimeout(tiempo, 60000)
+
 function cargarIconos() {
     iconos = [
         '<i class="fas fa-dog" style="--fa-primary-color: #000000; --fa-secondary-color: #000000;"></i>',
@@ -34,22 +48,39 @@ function generarTablero() {
             iconos.splice(0, 1)
         }
     }
+    tarjetas.sort(()=>Math.random()-0.5)
     campo.innerHTML = tarjetas.join('')
-    }
+}
+
 function seleccionarTarjeta(i) {
-    let tarjeta = document.getElementById("tarjeta" + i);
-    if (tarjeta.style.transform != "rotateY(180deg)") {
-        tarjeta.style.transform = "rotateY(180deg)";
-        tarjeta.onclick = null; // Desactivar el evento onclick
-        selecciones.push(i);
+    let tarjeta = document.getElementById("tarjeta" + i)
+    if (tarjeta.style.transform != "rotateY(180deg)"){
+        tarjeta.style.transform = "rotateY(180deg)"
+        tarjeta.onclick = null// Desactivar el evento onclick
+        selecciones.push(i)
     }
     if (selecciones.length == 2) {
-        deseleccionar(selecciones);
-        selecciones = [];
+        deseleccionar(selecciones)
+        selecciones = []
     }
 }
 
+function deseleccionar(selecciones) {
+    setTimeout(() => {
+        let trasera1 = document.getElementById("trasera" + selecciones[0])
+        let trasera2 = document.getElementById("trasera" + selecciones[1])
+        if (trasera1.innerHTML != trasera2.innerHTML) {
+            let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
+            let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+            tarjeta1.style.transform = "rotateY(0deg)"
+            tarjeta2.style.transform = "rotateY(0deg)"
+        }else{
+            trasera1.style.background = "plum"
+            trasera2.style.background = "plum"
+        }
+    }, 1000)
+}
 
-
-
-
+function puntajes(){
+    
+}
