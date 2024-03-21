@@ -1,6 +1,21 @@
 window.addEventListener("load", generarTablero,
-    window.alert("Comienza el juego"),
+    cronometro(),
+    window.alert("Comienza el juego")
 )
+
+let segundos = document.getElementById('tiempo')
+
+function cronometro(){
+    let tiempoestablecido = 30
+    let contador = setInterval(()=>{
+        tiempoestablecido--
+        segundos.innerHTML = tiempoestablecido
+    if (tiempoestablecido==0){
+        clearInterval(contador)
+        tiempo(puntaje)
+    }
+    },1000)
+}
 
 function tiempo(puntaje1){
     window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " +puntaje1)
@@ -56,7 +71,7 @@ function seleccionarTarjeta(i) {
     }
 }
 
-let acierto = 30
+let acierto = 20
 let puntaje = 0
 function deseleccionar(selecciones) {
     let trasera1 = document.getElementById('cartat' + selecciones[0])
@@ -72,7 +87,3 @@ function deseleccionar(selecciones) {
         }
     }, 1000)
 }
-
-setTimeout(() => {
-    tiempo(puntaje)
-}, 30000)

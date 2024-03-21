@@ -3,10 +3,10 @@
 }
 
 .areat, .tarjeta{
-    width: 150px;
+    width: 130px;
     height: 200px;
-    margin-left: 10px;
-    margin-right:  10px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-top: 5px;
     cursor: pointer;
 }
@@ -18,7 +18,7 @@ header{
 .containerc {
     padding: 0;
     margin: 0;
-    min-height: 100vh;
+    min-height: 80vh;
     background: powderblue;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ header{
 
 .carat{
     background-color: rgb(95, 158, 160);
-    width: 150px;
+    width: 130px;
     height: 200px;
     padding: 20px;
     border-radius: 15px;
@@ -49,7 +49,7 @@ header{
 
 .caras{
     background:rgb(10, 107, 109);
-    width: 150px;
+    width: 130px;
     height: 200px;
     padding: 20px;
     border-radius: 15px;
