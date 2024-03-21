@@ -16,6 +16,9 @@
     cursor: pointer;
 }
 
+header{
+    background-color: powderblue;
+}
 .containerc {
     padding: 0;
     margin: 0;

@@ -5,7 +5,7 @@ window.addEventListener("load", generarTablero,
 )
 
 function tiempo(puntaje1){
-    window.alert("Puntaje Obtenido:" +puntaje1)
+    window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " +puntaje1)
 }
 
 function cargarIconos() {
@@ -56,12 +56,13 @@ function seleccionarTarjeta(i) {
     }
 }
 
+let acierto = 30
+let puntaje = 0
 function deseleccionar(selecciones) {
-    let acierto = 30
-    let puntaje = 0
-    setTimeout(() => {
+    
         let trasera1 = document.getElementById('cartat' + selecciones[0])
         let trasera2 = document.getElementById('cartat' + selecciones[1])
+        setTimeout(() => {
         if (trasera1.innerHTML != trasera2.innerHTML) {
             let tarjeta1 = document.getElementById('tarjeta' + selecciones[0])
             let tarjeta2 = document.getElementById('tarjeta' + selecciones[1])
@@ -70,6 +71,11 @@ function deseleccionar(selecciones) {
         }else{
             puntaje+=acierto
         }
+    
     }, 1000)
-    setTimeout(tiempo, 60000, puntaje)
+        
 }
+
+setTimeout(() => {
+    tiempo(puntaje)
+    }, 30000);
