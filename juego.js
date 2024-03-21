@@ -41,32 +41,19 @@ function generarTablero() {
     campo.innerHTML = tarjetas.join('')
     }
 function seleccionarTarjeta(i) {
-    let tarjeta = document.getElementById("tarjeta" + i)
+    let tarjeta = document.getElementById("tarjeta" + i);
     if (tarjeta.style.transform != "rotateY(180deg)") {
-        tarjeta.style.transform = "rotateY(180deg)"
-        selecciones.push(i)
+        tarjeta.style.transform = "rotateY(180deg)";
+        tarjeta.onclick = null; // Desactivar el evento onclick
+        selecciones.push(i);
     }
     if (selecciones.length == 2) {
-        deseleccionar(selecciones)
-        selecciones = []
+        deseleccionar(selecciones);
+        selecciones = [];
     }
 }
 
-function deseleccionar(selecciones) {s
-    setTimeout(() => {
-        let trasera1 = document.getElementById("trasera" + selecciones[0])
-        let trasera2 = document.getElementById("trasera" + selecciones[1])
-        if (trasera1.innerHTML != trasera2.innerHTML) {
-            let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-            let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
-            tarjeta1.style.transform = "rotateY(0deg)"
-            tarjeta2.style.transform = "rotateY(0deg)"
-        }else{
-            trasera1.style.background = "plum"
-            trasera2.style.background = "plum"
-        }
-    }, 1000);
-}
+
 
 
 
