@@ -1,6 +1,6 @@
 :root {
-    --w: calc(70vw / 6);
-    --h: calc(70vh / 3);
+    --w: calc(70vw / 12);
+    --h: calc(70vh/6);
 }
 
 * {
@@ -12,6 +12,7 @@
     height: 200px;
     margin-left: 10px;
     margin-right:  10px;
+    margin-top: 5px;
 }
 
 .containerc {
