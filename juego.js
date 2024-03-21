@@ -1,3 +1,11 @@
+let carga = document.getElementById('juego')
+
+carga.addEventListener('load', InicioJuego)
+
+function InicioJuego(){
+    alert("El juego comienza en este momento")
+}
+
 function cargarIconos() {
     iconos = [
         '<i class="fa-duotone fa-dog" style="--fa-primary-color: #000000; --fa-secondary-color: #000000;"></i>',
@@ -10,4 +18,3 @@ function cargarIconos() {
         '<i class="fa-duotone fa-cow" style="--fa-primary-color: #000000; --fa-secondary-color: #000000;"></i>',
     ]
 }
-
