@@ -44,7 +44,7 @@ function generarTablero() {
             <div class="areat" onclick="seleccionarTarjeta(${i})">
                 <div class="tarjeta" id="tarjeta${i}">
                     <div class="carat" id="cartat${i}">
-                    ${iconos[i % (iconos.length / 1)]}
+                    ${iconos[i % iconos.length]}
                     </div>
                     <div class="caras">
                         <i class="fas fa-star"></i>
