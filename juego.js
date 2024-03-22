@@ -1,8 +1,10 @@
 window.addEventListener("load", IniciaJuego)
 
 function IniciaJuego(){
-    generarTablero(),
-    cronometro(),
+    puntaje = 0
+    aciertos = 0
+    generarTablero()
+    cronometro()
     window.alert("Comienza el juego")
 }
 
@@ -13,17 +15,26 @@ function cronometro(){
     let contador = setInterval(()=>{
         tiempoestablecido--
         segundos.innerHTML = tiempoestablecido
-    if (tiempoestablecido==0){
-        clearInterval(contador)
-        tiempo(puntaje)
-    }
+        if (tiempoestablecido==0){
+            clearInterval(contador)
+            tiempo(puntaje)
+        }else{
+            if(aciertos==8){
+                clearInterval(contador)
+                terminado(puntaje)
+            }
+        }
     },1000)
 }
 
 function tiempo(puntaje1){
-    window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " + puntaje1),
+    window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " + puntaje1)
     IniciaJuego()
+}
 
+function terminado(puntaje2){
+    window.alert("¡Felicidades! Has encontrado todos los pares de cartas\nPuntaje Obtenido: " + puntaje2)
+    IniciaJuego()
 }
 
 function cargarIconos() {
@@ -55,7 +66,7 @@ function generarTablero() {
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
-            </div>  
+            </div>
         `);
     }
     tarjetas.sort(()=>Math.random()-0.5)
@@ -76,8 +87,10 @@ function seleccionarTarjeta(i) {
     }
 }
 
-let acierto = 20
+let puntajeAcierto = 20
 let puntaje = 0
+let aciertos = 0
+
 function deseleccionar(selecciones) {
     let trasera1 = document.getElementById('cartat' + selecciones[0])
     let trasera2 = document.getElementById('cartat' + selecciones[1])
@@ -88,7 +101,8 @@ function deseleccionar(selecciones) {
             tarjeta1.style.transform = "rotateY(0deg)"
             tarjeta2.style.transform = "rotateY(0deg)"
         }else{
-            puntaje+=acierto
+            puntaje+=puntajeAcierto
+            aciertos++
         }
     }, 1000)
 }
