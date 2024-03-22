@@ -1,7 +1,10 @@
-window.addEventListener("load", generarTablero,
+window.addEventListener("load", IniciaJuego)
+
+function IniciaJuego(){
+    generarTablero(),
     cronometro(),
     window.alert("Comienza el juego")
-)
+}
 
 let segundos = document.getElementById('tiempo')
 
@@ -18,7 +21,9 @@ function cronometro(){
 }
 
 function tiempo(puntaje1){
-    window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " +puntaje1)
+    window.alert("¡El tiempo terminó!\nPuntaje Obtenido: " + puntaje1),
+    IniciaJuego()
+
 }
 
 function cargarIconos() {
